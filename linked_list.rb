@@ -9,6 +9,7 @@ class LinkedList
 
   def add_first(value)
     return @head = Node.new(value, @head)
+
     # new_node = Node.new(value)
     # # Edge: if list is empty
     # if @head.nil?
@@ -22,8 +23,7 @@ class LinkedList
 
   def get_first
     # Edge: if list is empty
-    return nil if self.head.nil?
-    return self.head.data
+    return self.head.nil? ? nil : self.head.data
   end
 
   def length
@@ -31,7 +31,7 @@ class LinkedList
     if @head.nil?
       return 0
     else
-    # Edge: if current.next.nil?
+    # Edge: if @head.next.nil?
       length = 1
       current = @head
       until current.next.nil?
@@ -46,16 +46,15 @@ class LinkedList
     new_node = Node.new(value) #default next = nil
     # Edge: if @head.nil?
     if @head.nil?
-      @head = new_node
+      return @head = new_node
     else
       #Bunny Hop of Linked List
       current = @head
       until current.next.nil?
         current = current.next
       end
-      current.next = new_node
+      return current.next = new_node
     end
-    return new_node
   end
 
   def get_last
